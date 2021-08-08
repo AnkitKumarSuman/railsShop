@@ -1,0 +1,43 @@
+<%= form_with(model: shop) do |form| %>
+  <% if shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+      <ul>
+        <% shop.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <% form.label :shop_name %>
+    <%= form.text_field :shop_name, class:"form-control", placeholder:"Shop Name" %>
+  </div>
+
+  <div class="field mb-3">
+    <% form.label :location %>
+    <%= form.text_field :location, class:"form-control", placeholder:"Location" %>
+  </div>
+
+  <div class="field mb-3">
+    <% form.label :email %>
+    <%= form.text_field :email, class:"form-control", placeholder:"Email" %>
+  </div>
+
+  <div class="field" mb-3>
+    <% form.label :phone %>
+    <%= form.text_field :phone, class:"form-control", placeholder:"Phone Number" %>
+  </div>
+
+  <div class="field mb-3">
+    <% form.label :user_id %>
+    <%= form.number_field :user_id,id: :shop_user_id, class:"form-control", value:current_user.id, type: :hidden %>
+  </div>
+
+  <br/>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary"%>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+<% if user_signed_in? %>
+
+<h1>Shops List</h1>
+
+<table class="table table-striped table-hover table_bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Shop name</th>
+      <th>Location</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shops.each do |shop| %>
+      <% if shop.user == current_user %>
+      <tr>
+        <td><%= link_to shop.shop_name, shop %></td>
+        <td><%= shop.location %></td>
+        <td><%= shop.email %></td>
+        <td><%= shop.phone %></td>
+      
+        <td><%= link_to 'Delete', shop, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shop', new_shop_path, class:"btn btn-secondary" %>
+
+<% else %>
+<h1>Hi</h1>
+Welcome to the app
+
+<% end %>
