@@ -47,7 +47,6 @@ rails s
 
 3. After finishing your work on app you can close the server by pressing " Ctrl+C". 
 
-.
 
 
 
