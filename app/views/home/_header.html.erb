@@ -32,6 +32,16 @@
             
           </li>
 
+                    <li class="nav-item">
+            <%= link_to "Add Book",new_book_path,class:"nav-link" %>
+            
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Show Book",books_path,class:"nav-link" %>
+            
+          </li>
+
         <% else %>
 
           <li class="nav-item">
@@ -43,6 +53,10 @@
             <%= link_to "Sign In",new_user_session_path,class:"nav-link" %>
             
           </li>
+
+
+
+         
 
         <% end %>
 
